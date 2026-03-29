@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bovespa | B3 - Guia Completo do Mercado de Ações Brasileiro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5f7fa;
+            color: #1a2a32;
+            line-height: 1.5;
+        }
+
+        /* introdução com subtítulo */
+        .hero {
+            background: linear-gradient(135deg, #0b2b3b 0%, #1a5f7a 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom-left-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            font-weight: 500;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+
+        .hero .intro-paragraph {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1rem;
+            line-height: 1.6;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem 1.8rem;
+            border-radius: 1.5rem;
+            backdrop-filter: blur(2px);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* seções com mistura de cards e parágrafos */
+        .section-title {
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: #0b2b3b;
+            margin: 2rem 0 1rem 0;
+            border-bottom: 3px solid #1a5f7a;
+            display: inline-block;
+            padding-bottom: 0.3rem;
+        }
+
+        .grid-2cols {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.8rem;
+            margin: 1.5rem 0;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            border: 1px solid #e2ece6;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #0b2b3b;
+            margin-bottom: 1rem;
+            border-left: 4px solid #1a5f7a;
+            padding-left: 0.8rem;
+        }
+
+        .card p {
+            margin-bottom: 0.8rem;
+            color: #2d3e44;
+        }
+
+        .card ul,
+        .paragraph-list {
+            margin: 0.6rem 0 0.6rem 1.4rem;
+        }
+
+        .card li {
+            margin-bottom: 0.5rem;
+        }
+
+        .paragraph-block {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem 2rem;
+            margin: 1rem 0 1.8rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2ece6;
+        }
+
+        .paragraph-block h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a5f7a;
+            margin-bottom: 0.8rem;
+        }
+
+        .paragraph-block p {
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .highlight-light {
+            background: #eef6f2;
+            padding: 1rem 1.3rem;
+            border-radius: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #1a5f7a;
+        }
+
+        .prof-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .prof-item {
+            background: #f8faf7;
+            padding: 0.7rem 1rem;
+            border-radius: 1rem;
+            flex: 1 1 180px;
+            border: 1px solid #dee6e0;
+        }
+
+        .prof-item strong {
+            color: #0b2b3b;
+            display: block;
+            font-size: 1rem;
+        }
+
+        .salary {
+            font-size: 0.8rem;
+            color: #5f7670;
+            display: inline-block;
+            margin-top: 0.2rem;
+        }
+
+        footer {
+            background: #0b2b3b;
+            color: #cce3dc;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2.5rem;
+            border-top-left-radius: 1.8rem;
+            border-top-right-radius: 1.8rem;
+            font-size: 0.85rem;
+        }
+
+        hr {
+            margin: 1rem 0;
+            border: none;
+            height: 1px;
+            background: #cbdcd2;
+        }
+
+        .featured-card {
+            display: flex;
+            flex-direction: row;
+            gap: 1.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .card-text {
+            flex: 2;
+            min-width: 250px;
+        }
+
+        .card-image-wrapper {
+            flex: 1;
+            text-align: center;
+            min-width: 180px;
+        }
+
+        .card-image-wrapper img {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            border-radius: 1rem;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card-image-wrapper img:hover {
+            transform: scale(1.03);
+        }
+
+        .image-credit {
+            font-size: 0.75rem;
+            color: #1a5f7a;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        .image-credit i {
+            margin-right: 0.3rem;
+        }
+
+        .grid-3cols {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 1.5rem 0;
+        }
+
+        .investor-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .investor-card h3 {
+            margin-bottom: 0.8rem;
+        }
+
+        .investor-card p {
+            flex: 1;
+            margin-bottom: 1rem;
+        }
+
+        .card-investor-image {
+            margin-top: 1rem;
+            text-align: center;
+            padding-top: 0.5rem;
+            border-top: 1px solid #e2ece6;
+        }
+
+        .card-investor-image img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            border-radius: 0.8rem;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .card-investor-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .card-firmidi-image img {
+            max-width: 1000px;
+            height: auto;
+            margin-left: 144px;
+            margin-bottom: 14px;
+
+
+        }
+
+        /* Cards de alta e baixa com cores suaves */
+        .card-alta {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f9f0 10%);
+            border-left: 5px solid #2e7d64;
+        }
+
+        .card-alta h3 {
+            color: #1e6b5c;
+            border-left-color: #2e7d64;
+        }
+
+        .card-alta h3 i {
+            color: #2e7d64;
+            margin-right: 0.5rem;
+        }
+
+        .card-baixa {
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f5 20%);
+            border-left: 5px solid #c95a5a;
+        }
+
+        .card-baixa h3 {
+            color: #b34e4e;
+            border-left-color: #c95a5a;
+        }
+
+        .card-baixa h3 i {
+            color: #c95a5a;
+            margin-right: 0.5rem;
+        }
+
+        .card-alta:hover,
+        .card-baixa:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        /* introdução com logo integrada */
+        .hero {
+            background: linear-gradient(135deg, #0b2b3b 0%, #1a5f7a 100%);
+            color: white;
+            padding: 2rem 2rem;
+            border-bottom-left-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+
+        .hero-logo img {
+            width: 450px;
+            height: auto;
+            margin-bottom: -61px;
+            margin-top: -54px;
+
+        }
+
+        .hero-logo:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            max-width: 700px;
+        }
+
+        @media (max-width: 700px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-content p {
+                font-size: 0.95rem;
+            }
+
+            .hero-logo img {
+                width: 60px;
+            }
+        }
+
+        /* Card com imagens das bolsas mundiais */
+        .bolsas-mundo-card {
+            margin-top: 1rem;
+        }
+
+        .bolsas-mundo-card h3 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .bolsas-mundo-card h3 i {
+            margin-right: 0.5rem;
+            color: #1a5f7a;
+        }
+
+        .bolsas-imagens {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .bolsa-item {
+            text-align: center;
+            flex: 1;
+            min-width: 100px;
+        }
+
+        .bolsa-item img {
+            width: 100%;
+            max-width: 260px;
+            height: auto;
+            border-radius: 1rem;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .bolsa-item img:hover {
+            transform: translateY(-5px);
+        }
+
+        .bolsa-item span {
+            display: block;
+            margin-top: 0.5rem;
+            font-weight: 600;
+            color: #1a5f7a;
+            font-size: 0.9rem;
+        }
+
+        /* Card de funcionamento prático com fundo amarelo */
+        .card-funcionamento {
+            background: linear-gradient(135deg, #fff9e8 0%, #fff2d9 100%);
+            border-left: 5px solid #e6b422;
+            margin-top: 0.5rem;
+        }
+
+        .card-funcionamento h3 {
+            color: #b87c1a;
+            border-left-color: #e6b422;
+        }
+
+        .card-funcionamento h3 i {
+            color: #e6b422;
+            margin-right: 0.5rem;
+        }
+
+        .card-funcionamento p {
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        .card-funcionamento:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        @media (max-width: 700px) {
+            .bolsas-imagens {
+                gap: 1rem;
+            }
+
+            .bolsa-item img {
+                max-width: 80px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .featured-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .card-text ul {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 750px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .paragraph-block {
+                padding: 1rem;
+            }
+
+            .card {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="hero">
+        <div class="hero-logo">
+            <img src="foto/Design sem nome (1).png" alt="Colégio UNASP São Paulo">
+        </div>
+        <h1><i class="fas fa-chart-line"></i> B3 | BOVESPA</h1>
+        <p>Um guia descomplicado sobre a bolsa de valores: como funciona, quem pode investir, os principais produtos e
+            os cuidados que você precisa ter.</p>
+    </div>
+    <div class="container">
+
+        <!-- SEÇÃO 1: Commodities -->
+        <div class="section-title">O que são commodities e por que investir nelas?</div>
+        <div class="paragraph-block">
+            <p><strong>Commodities são produtos básicos, de origem natural ou agrícola, que são comercializados em larga
+                    escala
+                    no mundo inteiro. Café, soja, petróleo, minério de ferro e carne são exemplos clássicos. O Brasil é
+                    um
+                    dos maiores produtores mundiais desses itens.</strong></p>
+            <h3>As principais commodities da B3</h3>
+            <p>Na bolsa, você encontra essas gigantes representadas por grandes empresas:</p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li><strong>Minério de ferro</strong> – representado pela Vale (VALE3), gigante global do setor.</li>
+                <li><strong>Petróleo e derivados</strong> – Petrobras (PETR3 / PETR4), com forte influência no mercado.
+                </li>
+                <li><strong>Soja, milho, café e açúcar</strong> – empresas como SLC Agrícola (SLCE3), São Martinho
+                    (SMTO3) e BrasilAgro.</li>
+                <li><strong>Carne bovina e proteína animal</strong> – JBS (JBSS3), Marfrig (MRFG3) e BRF (BRFS3).</li>
+                <li><strong>Celulose e papel</strong> – Suzano (SUZB3) e Klabin (KLBN11), líderes no setor.</li>
+            </ul>
+        </div>
+        <div class="grid-2cols">
+            <div class="card featured-card">
+                <div class="card-text">
+                    <h3>Vantagens de investir em commodities</h3>
+                    <p>Investir nesse tipo de ativo traz alguns benefícios interessantes:</p>
+                    <ul>
+                        <li><strong>Proteção contra a inflação:</strong> quando os preços sobem, as commodities costumam
+                            acompanhar.</li>
+                        <li><strong>Proteção cambial:</strong> a receita dessas empresas vem em dólar, o que ajuda
+                            quando o real desvaloriza.</li>
+                        <li><strong>Boa liquidez:</strong> são ações muito negociadas, fáceis de comprar e vender.</li>
+                        <li><strong>Diversificação:</strong> você espalha seus investimentos por setores diferentes.
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-image-wrapper">
+                    <img src="foto/bovespa.jpg">
+                    <div class="image-credit">
+                        <i class="fas fa-building"></i> B3 – Brasil Bolsa Balcão
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEÇÃO 2: Tipo de investidor -->
+        <div class="section-title">Qual é o seu perfil de investidor?</div>
+        <div class="paragraph-block">
+            <h3>Como a CVM classifica os investidores</h3>
+            <p>A Comissão de Valores Mobiliários separa os investidores em <strong>três categorias. </strong><br>
+                Isso ajuda a saber quais
+                produtos você pode acessar e qual o nível de risco que pode assumir.</p>
+        </div>
+        <div class="grid-2cols">
+            <div class="card">
+                <h3>Investidor comum</h3>
+                <p>É qualquer pessoa que abre uma conta em corretora. Pode investir em ações, Tesouro Direto, fundos,
+                    ETFs e BDRs. É o perfil da grande maioria que entra na bolsa.</p>
+                <div class="card-investor-image">
+                    <img src="foto/bluu.png" alt="Investidor comum">
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Investidor qualificado</h3>
+                <p>Tem patrimônio acima de R$ 1 milhão ou certificações como CFP. Consegue acessar produtos mais
+                    exclusivos, como fundos fechados e algumas operações especiais.
+                </p>
+                <div class="card-investor-image">
+                    <img src="foto/cruu.png" alt="Investidor qualificado">
+                </div>
+            </div>
+            <div class="card">
+                <h3>Investidor profissional</h3>
+                <p>São bancos, fundos de investimento ou pessoas com mais de R$ 10 milhões. Têm acesso liberado a
+                    qualquer tipo de operação, incluindo as mais complexas.</p>
+                <div class="card-investor-image">
+                    <img src="foto/pru.png" alt="Investidor profissional">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- SEÇÃO 3: Bolsa na vida dos brasileiros (misto) -->
+        <div class="section-title">A bolsa no dia a dia do brasileiro</div>
+        <div class="grid-2cols">
+            <div class="card">
+                <h3>Mais gente investindo</h3>
+                <p>Hoje já são mais de 5 milhões de CPFs ativos na B3. <br> Isso aconteceu graças aos aplicativos fáceis
+                    de
+                    usar e à educação financeira que virou febre nas redes sociais.</p>
+            </div>
+            <div class="card">
+                <h3>Impacto real na vida</h3>
+                <p>Muita gente usa a bolsa para complementar a renda com dividendos, juntar dinheiro para a
+                    aposentadoria ou realizar sonhos. Empresas que você conhece do dia a dia estão lá, o que aproxima
+                    ainda mais as pessoas do mercado.</p>
+            </div>
+        </div>
+        <div class="paragraph-block"
+            style="background: #d9eaf1; border-radius: 1.5rem; margin-top: 2rem; padding: 1.5rem;  color: #1a5f7a;">
+            <p><strong>O acesso facilitado mudou tudo. Hoje dá para começar a investir com poucos reais, direto pelo
+                    celular. O
+                    mercado deixou de ser coisa de especialista e virou uma ferramenta acessível para quem quer
+                    construir
+                    patrimônio.</strong></p>
+        </div>
+
+        <!-- SEÇÃO 4: Moedas na B3 -->
+        <div class="section-title">Moedas internacionais na B3</div>
+        <div class="paragraph-block">
+            <h3>Como investir em outras moedas sem sair do país</h3>
+            <p><strong>Na B3 você consegue ter exposição a moedas como o dólar e o euro, mesmo investindo em reais.
+                </strong>Isso é feito
+                por meio de produtos que replicam o exterior. </p>
+        </div>
+        <div class="grid-2cols">
+            <div class="card">
+                <h3>Dólar americano (USD)</h3>
+                <p>Presente nos BDRs de empresas como Apple, Amazon e Microsoft, além do ETF IVVB11, que segue o S&P
+                    500. Também existem contratos futuros de dólar e fundos cambiais.</p>
+            </div>
+            <div class="card">
+                <h3>Euro e outras moedas</h3>
+                <p>Por meio de BDRs de empresas europeias e fundos internacionais, é possível acessar o euro, libra e
+                    outras divisas. Uma forma de diversificar sem complicação.</p>
+            </div>
+        </div>
+
+
+        <!-- SEÇÃO 5: Alta e baixa + influência -->
+        <div class="section-title">Bolsa em alta ou em baixa: o que muda?</div>
+        <div class="grid-2cols">
+            <div class="card card-alta">
+                <h3>Bolsa em alta</h3>
+                <p>Quando o Ibovespa sobe, é sinal de que os investidores estão confiantes. Empresas conseguem captar
+                    dinheiro mais fácil, o consumo tende a crescer e até as aposentadorias ligadas à bolsa podem se
+                    beneficiar.</p>
+            </div>
+            <div class="card card-baixa">
+                <h3>Bolsa em baixa</h3>
+                <p>A queda reflete incerteza. Pode ser medo da economia, da política ou de crises externas. Nesses
+                    momentos, o custo do dinheiro para as empresas sobe e a confiança geral costuma cair.</p>
+            </div>
+        </div>
+
+
+        <!-- SEÇÃO 6: Relação com bolsas globais -->
+        <div class="section-title">Brasil e o mundo: a bolsa conectada</div>
+        <div class="grid-2cols">
+            <div class="card">
+                <h3>Investidores estrangeiros</h3>
+                <p>Cerca de 50% do que é negociado na B3 vem de fora. Isso mostra como o mercado brasileiro está ligado
+                    ao que acontece no mundo. <br>Esses investidores estrangeiros vêm das principais bolsas do mundo.
+                    <br>Veja
+                    abaixo algumas delas:
+                </p>
+            </div>
+            <div class="card">
+                <h3>Correlação com o exterior</h3>
+                <p>Quando o S&P 500 sobe, o Ibovespa costuma acompanhar. E o contrário também acontece. Além disso, BDRs
+                    e ETFs permitem que você invista em empresas globais sem sair da B3.</p>
+            </div>
+        </div>
+
+        <div class="card bolsas-mundo-card">
+
+            <div class="bolsas-imagens">
+                <div class="bolsa-item">
+                    <img src="foto/nyse.png" alt="NYSE - Bolsa de Nova York">
+                    <span>NYSE</span>
+                </div>
+                <div class="bolsa-item">
+                    <img src="foto/naas.png" alt="Nasdaq">
+                    <span>Nasdaq</span>
+                </div>
+                <div class="bolsa-item">
+                    <img src="foto/eur.png" alt="Euronext">
+                    <span>Euronext</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEÇÃO 7: Mecanismos de acumulação de capital -->
+        <div class="section-title">Como o dinheiro cresce na bolsa</div>
+        <div class="grid-2cols">
+            <div class="card">
+                <h3>Valorização + dividendos</h3>
+                <p>Você ganha de duas formas: quando o preço do ativo sobe (e você vende mais caro) e quando a empresa
+                    distribui parte do lucro (dividendos).</p>
+            </div>
+            <div class="card">
+                <h3>O poder dos juros compostos</h3>
+                <p>Reinvestir os dividendos e os rendimentos faz o dinheiro crescer como uma bola de neve. Quanto mais
+                    tempo você deixa, maior o efeito.</p>
+            </div>
+        </div>
+        <div class="card card-funcionamento">
+            <h3><i class="fas fa-exclamation-triangle"></i> Na prática, como funciona?</h3>
+            <p>Você abre conta em uma corretora, transfere dinheiro e começa a comprar ativos pelo home broker. As
+                negociações acontecem na B3 e levam dois dias úteis para liquidar (D+2). O segredo está na paciência e
+                no hábito de reinvestir os ganhos. Tudo regulado pela CVM, com segurança e transparência.</p>
+        </div>
+
+
+        <div class="section-title">Quem trabalha com isso?</div>
+        <p>Por trás da bolsa, existe um time de profissionais que ajuda o mercado a funcionar. <br>
+            Conheça
+            algumas
+            carreiras e as médias salariais estimadas.
+        </p>
+        <div class="paragraph-block"
+            style="background: #d9eaf1; border-radius: 1.5rem; margin-top: 2rem; padding: 1.5rem;">
+            <div class="card-firmidi-image">
+                <img src="foto/Mapa Mental (1).png" alt="Investidor profissional">
+            </div>
+        </div>
+
+
+        <!-- SEÇÃO 9: Riscos e como driblar -->
+        <div class="section-title">Cuidados: os riscos de investir e como se proteger</div>
+        <div class="grid-2cols">
+            <div class="card">
+                <h3>Principais riscos</h3>
+                <ul>
+                    <li><strong>Risco de mercado:</strong> oscilações por economia, política, crises.</li>
+                    <li><strong>Risco de liquidez:</strong> dificuldade de vender um ativo rapidamente.</li>
+                    <li><strong>Risco de crédito:</strong> chance de calote (mais comum na renda fixa).</li>
+                    <li><strong>Risco cambial:</strong> variação das moedas estrangeiras.</li>
+                    <li><strong>Risco operacional:</strong> falhas em sistemas ou fraudes.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Como se proteger</h3>
+                <ul>
+                    <li>Diversifique: não coloque tudo no mesmo lugar.</li>
+                    <li>Tenha reserva de emergência para imprevistos.</li>
+                    <li>Invista de acordo com seu perfil e prazo.</li>
+                    <li>Estude sempre e, se precisar, busque ajuda profissional.</li>
+                    <li>Evite tomar decisões no calor da emoção.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bloco extra com resumo interativo e nota de fonte -->
+        <div style="background: #d9eaf1; border-radius: 1.5rem; margin-top: 2rem; padding: 1.5rem; text-align: center;">
+            <i class="fas fa-info-circle" style="font-size: 1.8rem; color: #0b2b3b"></i>
+            <p style="font-weight: 500;"> A B3 (Brasil Bolsa Balcão) é a bolsa de valores oficial do Brasil,
+                resultado
+                da fusão da BM&FBovespa. Todas as informações refletem dados gerais sobre o mercado financeiro e têm
+                caráter educativo. Sempre consulte profissionais certificados antes de tomar decisões de
+                investimento.
+            </p>
+            <p style="margin-top: 8px; font-size: 0.8rem;">Fontes: B3 (Brasil Bolsa Balcão), Produtos de
+                commodities, BDRs de ETF e Produtos e Serviços - Ações e Renda Variável.
+                Comissão de Valores Mobiliários (CVM), Instrução CVM 539. <br> B3 - Bora Investir, Ativos de
+                proteção:
+                qual é
+                o papel na carteira – e como
+                acessá-los e Associação Nacional dos Analistas e Profissionais de Investimento (ANBIMA).</p>
+        </div>
+    </div>
+
+    <footer>
+        <i class="fas fa-chart-simple" style="font-weight: 400;"></i> Guia Bovespa — Conteúdo completo para entender os
+        mecanismos,
+        profissões,
+        riscos e oportunidades.<br>
+        Website desenvolvido por Ana Luiza Barea, Beatriz Firmado, Beatriz Floel, Giovanna Totte, Giovanna Migliorini e
+        Luiza
+        Rocha | Todos os direitos reservados
+    </footer>
+</body>
+
+</html>
